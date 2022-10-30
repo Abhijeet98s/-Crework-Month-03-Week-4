@@ -3,12 +3,16 @@ import { FaEdit } from "react-icons/fa"
 import { MdTaskAlt } from "react-icons/md"
 import { MdDelete } from "react-icons/md"
 import { MdOutlineCancel } from "react-icons/md"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+export default function List({ tasks, setTasks, setEditTask, inputFocus, isInCompletedSection }) {
 
-export default function List ({ tasks, setTasks, setEditTask, inputFocus, isInCompletedSection }) {
-
-  const handleDelete = ({ id }) => {
+  const handleDelete = ({ id, title }) => {
     setTasks(tasks.filter((todo) => todo.id !== id))
+    toast.error(`Task "${title}" deleted!`, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 
   const handleCompleted = (todo) => {
@@ -22,6 +26,13 @@ export default function List ({ tasks, setTasks, setEditTask, inputFocus, isInCo
         }
         return item
       }))
+    {
+      !todo.completed ? toast.success(`Task "${todo.title}" completed!`, {
+        position: toast.POSITION.TOP_RIGHT,
+      }) : toast.warn(`Task "${todo.title}" undo!`, {
+        position: toast.POSITION.TOP_RIGHT,
+      })
+    }
   }
 
   const handleEdit = ({ id }) => {
@@ -34,6 +45,14 @@ export default function List ({ tasks, setTasks, setEditTask, inputFocus, isInCo
 
   return (
     <>
+      <ToastContainer
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        theme="dark"
+      />
+
       {newTask.map((todo) => (
         <li className="max-w-full flex justify-between items-center bg-white rounded-md h-[40px] mb-5" key={todo.id}>
           <input

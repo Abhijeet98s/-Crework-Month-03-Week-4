@@ -13,22 +13,3 @@
 body {
   background-color: #191919;
 }
-
-.button {
-  color: #090909;
-  padding: 0.4em 1.5em;
-  font-size: 15px;
-  border-radius: 0.5em;
-  background: #e8e8e8;
-  border: 1px solid #e8e8e8;
-  transition: all 0.3s;
-  box-shadow: 2px 2px 3px #c5c5c5, -1px -1px 1px #ffffff;
-}
-
-.button:hover {
-  border: 1px solid white;
-}
-
-.button:active {
-  box-shadow: 4px 4px 6px #c5c5c5, -2px -2px 2px #ffffff;
-}
