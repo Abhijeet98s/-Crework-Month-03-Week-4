@@ -20,7 +20,7 @@ export default function App() {
     <>
       <div className="max-w-full min-h-screen text-white text-center py-5 space-y-20 font-Poppins">
         <h1 className="text-4xl font-extrabold">Task Management App</h1>
-        <div className="grid grid-cols-3 place-items-center px-44 gap-24">
+        <div className="grid grid-cols-2 place-items-center px-44 gap-24">
           <div>
             <h1 className="text-3xl font-bold">To-do</h1>
             <Form
