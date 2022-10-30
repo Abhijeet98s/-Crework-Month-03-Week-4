@@ -15,15 +15,12 @@ export default function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks))
   }, [tasks]);
 
-  function handleSwapAll() {
-
-  }
-
+ 
   return (
     <>
       <div className="max-w-full min-h-screen text-white text-center py-5 space-y-20 font-Poppins">
         <h1 className="text-4xl font-extrabold">Task Management App</h1>
-        <div className="grid grid-cols-3 place-items-center px-44">
+        <div className="grid grid-cols-3 place-items-center px-44 gap-24">
           <div>
             <h1 className="text-3xl font-bold">To-do</h1>
             <Form
@@ -35,8 +32,7 @@ export default function App() {
               setEditTask={setEditTask}
               inputFocus={inputFocus}
             />
-          </div>
-          <button onClick={() => handleSwapAll()} className="bg-transparent hover:bg-blue-600 text-white hover:text-white py-2 px-3 border border-blue-500 hover:border-transparent rounded">Swap All</button>
+          </div>          
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold text-center">Completed</h1>
             <div className="w-[450px] min-h-[500px] flex flex-col items-center bg-[#2e2e2e] p-5 mt-5 rounded-lg">
